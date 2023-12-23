@@ -112,7 +112,7 @@ driver.quit()
 
 ## Botasaurus
 
-We encourage you to learn about Botasaurus. The All-in-One Web Scraping Framework with Anti-Detection, Parallelization, Asynchronous, and Caching Superpowers.
+We encourage you to learn about [Botasaurus](https://github.com/omkarcloud/botasaurus). The All-in-One Web Scraping Framework with Anti-Detection, Parallelization, Asynchronous, and Caching Superpowers.
 
 ## Thanks
 
