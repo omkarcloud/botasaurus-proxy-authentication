@@ -1,7 +1,6 @@
-# Browser Proxy Authentication
+# Botasaurus Proxy Authentication
 
-Python Library to support SSL for authenticated proxies. 
-
+Botasaurus Proxy Authentication provides SSL support for authenticated proxies. 
 
 Proxy providers like BrightData, IPRoyal, and others typically provide authenticated proxies in the format "http://username:password@proxy-provider-domain:port". For example, "http://greyninja:awesomepassword@geo.iproyal.com:12321".
 
@@ -111,7 +110,20 @@ input("Press Enter to exit...")
 driver.quit()
 ```  
 
+## Botasaurus
+
+We encourage you to learn about Botasaurus. The All-in-One Web Scraping Framework with Anti-Detection, Parallelization, Asynchronous, and Caching Superpowers.
+
 ## Thanks
 
 - Kudos to the Apify Team for creating `proxy-chain` library. The implementation of SSL-based Proxy Authentication wouldn't be possible without their groundbreaking work on `proxy-chain`.
-- A special thanks to the Selenium team for creating Selenium, an invaluable tool in our toolkit.
+
+## Love It? [Star It! ⭐](https://github.com/omkarcloud/botasaurus)
+
+Become one of our amazing stargazers by giving us a star ⭐ on GitHub!
+
+It's just one click, but it means the world to me.
+
+[![Stargazers for @omkarcloud/botasaurus](https://bytecrank.com/nastyox/reporoster/php/stargazersSVG.php?user=omkarcloud&repo=botasaurus)](https://github.com/omkarcloud/botasaurus/stargazers)
+
+## Made with ❤️ in Bharat 🇮🇳 - Vande Mataram
