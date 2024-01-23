@@ -124,6 +124,6 @@ Become one of our amazing stargazers by giving us a star ⭐ on GitHub!
 
 It's just one click, but it means the world to me.
 
-[![Stargazers for @omkarcloud/botasaurus](https://bytecrank.com/nastyox/reporoster/php/stargazersSVG.php?user=omkarcloud&repo=botasaurus)](https://github.com/omkarcloud/botasaurus/stargazers)
+[![Stargazers for @omkarcloud/botasaurus-proxy-authentication](https://bytecrank.com/nastyox/reporoster/php/stargazersSVG.php?user=omkarcloud&repo=botasaurus-proxy-authentication)](https://github.com/omkarcloud/botasaurus-proxy-authentication/stargazers)
 
 ## Made with ❤️ in Bharat 🇮🇳 - Vande Mataram

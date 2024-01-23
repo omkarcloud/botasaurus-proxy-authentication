@@ -1,8 +1,7 @@
-# coding: utf-8
-import os
-import sys
-
 from setuptools import setup
+from setuptools.command.install import install
+import subprocess
+import sys
 
 __author__ = "Chetan Jain <chetan@omkar.cloud>"
 
@@ -11,38 +10,63 @@ install_requires = [
     "javascript",
 ]
 extras_require = {}
-with open("README.md") as readme_file:
-    long_description = readme_file.read()
 
 
-# 'setup.py publish' shortcut.
-if sys.argv[-1] == "publish":
-    os.system("python3 setup.py sdist bdist_wheel")
-    os.system("twine upload dist/*")
-    sys.exit()
-elif sys.argv[-1] == "clean":
-    import shutil
+def get_description():
+    try:
+        with open("README.md", encoding="utf-8") as readme_file:
+            long_description = readme_file.read()
+        return long_description
+    except:
+        return None
 
-    if os.path.isdir("build"):
-        shutil.rmtree("build")
-    if os.path.isdir("dist"):
-        shutil.rmtree("dist")
-    if os.path.isdir("botasaurus_proxy_authentication.egg-info"):
-        shutil.rmtree("botasaurus_proxy_authentication.egg-info")
+
+class PostInstallCommand(install):
+    """Post-installation for installation mode."""
+
+    def install_npm_package(self, package_name):
+        """Install an npm package using a Python module, suppressing the output and handling errors."""
+        try:
+            subprocess.run(
+                [sys.executable, "-m", "javascript", "--install", package_name],
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+            )
+        except Exception as e:
+            # Log the error if needed
+            pass
+            # print(f"An error occurred while installing {package_name}: {e}")
+
+        # This really loads it up.
+        try:
+            from javascript import require
+
+            pkg = require(package_name)
+        except Exception as e:
+            pass
+
+    def run(self):
+        # Run the standard install
+        super().run()
+
+        print("Installing needed npm packages")
+        # Install each npm package
+        self.install_npm_package("proxy-chain")
 
 
 setup(
     name="botasaurus_proxy_authentication",
-    version="1.0.0",
-    author='Chetan Jain',
-    author_email='chetan@omkar.cloud',
+    version="1.0.1",
+    author="Chetan Jain",
+    author_email="chetan@omkar.cloud",
+    cmdclass={"install": PostInstallCommand},
     description="Proxy Server with support for SSL, proxy authentication and upstream proxy.",
     license="MIT",
-    keywords="proxy authentication, seleniumwire proxy authentication",
-    url="https://github.com/omkarcloud/botasaurus_proxy_authentication",
+    keywords=["seleniumwire proxy authentication", "proxy authentication"],
+    url="https://github.com/omkarcloud/botasaurus-proxy-authentication",
     packages=["botasaurus_proxy_authentication"],
     long_description_content_type="text/markdown",
-    long_description=long_description,
+    long_description=get_description(),
     python_requires=">=3.6",
     classifiers=[
         "Development Status :: 5 - Production/Stable",
